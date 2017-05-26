@@ -166,7 +166,9 @@ Components Widget
 ---------------
 **Purpose:** The Components widget allows users to view and create new components.
 
-The Components widget is located below the Citation widget. In the panel's heading, two buttons are visible: "Add Component" and "Add Links."
+**Purpose:** The Components widget allows users to view and create new components.
+
+The Components widget is located below the Citation widget. In the panel's heading, two buttons are visible: "Add Component" and "Link Projects."
 
 When a project has no links or components within it, non-contributors do not see the Components widget. In that same scenario, users with
 read only permissions see the Components widget with no buttons. The body of the panel reads::
@@ -175,44 +177,52 @@ read only permissions see the Components widget with no buttons. The body of the
 
 Contributors with read+write or admin permissions see the two buttons and the panel provides the same message.
 
-If the user is visiting a component with no links or components nested within it, the message reads::
+If the user is visiting a component with no links or components nested within it, the Components widget is not visible.
 
-    No components have been added to this component.
+To add a component to a project, the user will need to click the "Add Component" button. Clicking this button opens the following modal::
 
-Clicking the "Add Component" button opens a modal::
+    Create new Component
+    [text field: "Title"]
+    [institutional logos: "Affiliation"]
+    [checkbox: "Add contributors from [parent project] / Admins of [parent project] will have read access to this component"]
+    [text: "License / This component will inherit the same license as [parent project]. Learn more [links to "License Your Project" help guide]"]
+    [dropdown: "More"]
+        - [text field: "Description"]
+        - [drop-down: "Category (for descriptive purposes)"]
+    [Cancel][Create]
 
-    Add Component
-    [text field: "Component Title]
-    [dropdown: "--Category--"]
-    [Checkbox: Add contributors from [Parent Project]]
-    [Cancel][Add]
+The first field in the modal is an empty text field with placeholder text that reads "Enter component Title." The user can enter a title of any length, however,
+on save, only the first 200 characters will be saved to the title. The title is mandatory. The user cannot create the component until they provide a title. The "Create" button at the bottom of the modal is unavailable unless there is a title.
 
-The first field in the modal is an empty text field with placeholder text that reads "Component Title." The user can enter a title of any length, however,
-on save, only the first 200 characters will be saved to the title.
+The "Affiliation" section of the modal is optional. Any institutional logos are selected by default. Clicking a logo deselects the institution and does not add it to the component.
 
-The user can add the component without selecting a category. To choose one, however, the user clicks on the dropdown menu labeled "--Category--"
-and selects any of the available options. If the user selects a category but does not enter a title, a red text alert appears below the
-"Component Title" field::
+The "Add contributors from [parent project]" checkbox is unchecked by default. Checking the box will add the project's contributors and will carry over their respective permissions to the component. If the user leaves this checkbox unchecked, the project's contributors will not be added to the component. However, all admins on the parent project will have read-access to the component.
 
-    This field is required.
+The "License" section informs the user that the component will inherit the same license as the parent project by default. The user can modify the component's license after the component has been created.
 
-After clicking the "Add" button, the button becomes deactivated and reads "Adding" until the page refreshes. The user remains on the Project Overview page, and there is a blue dismissable alert at the top of the page::
+The "More" section is optional. The user can type a description of the component into the "Description" text field. To add a category to the component, the user clicks inside the "Category" drop-down to select any of the available options: Analysis, Communication, Data, Hypothesis, Instrumentation, Methods and Measures, Procedure, Project, Software, Other, and Uncategorized. "Uncategorized" is selected by default.
 
-    Your component was created successfully. You can keep working on the project page below, or go to the new component.
+After clicking **Create**, the following modal appears confirming that the component has been created::
+  
+    New component created successfully!
+    [Keep working here][Go to new component]
+
+If the user clicks **Keep working here**, the page refreshes, and they remain on the Project Overview page.
+
+If the user clicks **Go to new component**, they are taken to the Component Overview page.
 
 If the user selected to add contributors from the parent project, they are all added at the same permissions levels as the parent. 
 
-Clicking the "Add Links" button opens a modal::
+Clicking the "Link Projects" button opens a modal::
 
-    Add Links
+    Link other OSF projects
     [text field: "Search projects"]
     [Search all projects][Search my projects]
 
 Below the search buttons are two columns, one labeled "Results" and one labeled "Adding."
 
 The user can enter their query in the "Search projects" text field. If they select the "Search Projects" button, all public OSF projects,
-components, and registrations whose title matches their query will be returned. Five results will be displayed, with additional pages listed below (see
-the description of pagination on the :ref:`Watchlist <pagination>` for complete documentation or page listing). Hovering over a project title will reveal the created date and time and the most recent modified date and time in the following format::
+components, and registrations whose title matches their query will be returned. Five results will be displayed, with additional pages listed below the results. Hovering over a project title will reveal the date and time created and the most recent modified date and time in the following format::
 
     Created: YYYY-MM-DD HH:MM AM/PM
     Modified: YYYY-MM-DD HH:MM AM/PM
@@ -271,22 +281,21 @@ Recent Activity Widget
 --------------------
 **Purpose:** The Recent Activity widget shows users the logged actions for the viewed project or component and its children.
 
-The Recent Activity widget appears below the Tags widget. Below the panel title, "Recent Activity," is muted text that reads::
-
-    All times displayed at ____ UTC offset.
+The Recent Activity widget appears below the Tags widget.
 
 Times are displayed in local time, and the correct offset is indicated in the above text.
 
 Below this is a list of all logged actions on the project or component and its children, displayed in chronological order with the most recent
-action listed at the top. Actions are listed in two columns—the left shows the date and time (YYYY-MM-DD HH:MM AM/PM).
-Hovering over a time shows a tooltip with the date and time in UTC.
-
-In the right column is a description of the log, first listing the user who committed the action, then the action and the
+action listed at the top. Actions are listed in two columns—the left is a description of the log, first listing the user who committed the action, then the action and the
 affected component or project. For example::
 
     [Username] tagged [project] as [tag]
     [Username] added [Username] as contributor(s) to [project name]
+    
+The right column shows the date and time (YYYY-MM-DD HH:MM AM/PM).
 
 User, file, project, component, registration, and wiki names are linked to the relevant pages.
+
+The logged actions include: contributors added, contributors removed, files added, files updated, files deleted, files moved, folders added, folders deleted, view-only link created, view-only link removed, componented added, components removed, license updated, registrations initiated, registrations created, registrations embargoed, emargoes canceled, registrations withdrawn, project renamed, project made public, project made private, component made public, component made private, wiki updated, preprint created, 
 
 Only the ten most recent logs are shown at once. Pagination behavior is described in detail :ref:`here <pagination>`.
