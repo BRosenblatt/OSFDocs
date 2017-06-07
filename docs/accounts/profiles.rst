@@ -14,7 +14,24 @@ network accounts, their education history, and employment history. These optiona
 public profile. They are grouped into tabs; social information is shown by default, employment history is the next tab, and education
 history is the final tab.
 
-Social information is listed in rows. The social account name (e.g. LinkedIn or Twitter) is listed on the left and a link to the
+The user's public projects and components are listed in two respective columns::
+  
+  Public projects | Public components
+  
+Five or fewer public projects and components are listed in each column. If the user has more than five public projects or components, the remaining projects and components are paginated accordingly.
+
+Projects are listed as::
+  
+   [project title]
+   [comma-separated contributor last names]
+
+Components are listed as::
+  
+    [component title]
+    [parent project title/component title]
+    [comma-separated contributor last names]
+
+Social information is listed in rows on the top right of the profile page. The social account name (e.g. LinkedIn or Twitter) is listed on the left and a link to the
 profile is on the right.
 
 Employment information is listed in a table. Table headers include "institution," "department/institute,"
@@ -26,8 +43,6 @@ Employment information is listed in a table. Table headers include "institution,
 To edit profile information, users can visit their User Settings. Alternatively, they can visit their public profile
 and then click the "Edit your profile" link. By default, the "Profile Information" page is shown, and the "Name" tab
 is selected.
-
-.. todo:: log as a bug: saving changes to social information takes several seconds and there is no indication that the change is being saved in the mean time
 
 Usernames
 ------------
