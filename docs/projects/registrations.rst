@@ -84,9 +84,11 @@ Clicking "Register" brings up a modal::
     Registration choice: 
     [Dropdown selections:] Make registration public immediately
     Enter registration into embargo (selecting this option brings up a field, "Embargo End Date" where user must select date to embargo)
-    [Cancel][Continue]
+    [Cancel][Submit]
 
-If additional add-ons are connected to the project, the modal includes information about their registration behavior.
+If additional add-ons are connected to the project, the modal includes information about their registration behavior::
+  
+    This project contains links to other projects. Links will be copied into your registration, but the projects that they link to will not be registered. If you wish to register the linked projects, you must fork them from the original project before registering.
 
 Clicking the "Register" button brings the user to the registrations page for their project. The new registration is listed.
 A dismissable blue alert is at the top of the page::
