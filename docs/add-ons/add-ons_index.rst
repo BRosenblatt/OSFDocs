@@ -668,22 +668,6 @@ Clicking "Disconnect" removes the table and connected folder information. The "D
 that reads "Import Account from Profile." Alternatively, the user can uncheck the add-on from the "Select Add-ons" list and save their
 changes.
 
-.. _external link:
-Configuring External Link
-*************
-**Purpose:** Adding an external link allows users to redirect project visitors to the provided URL. 
-
-Users who select the external link add-on are shown the Configure Add-ons pane. The text reads::
-
-    External Link
-    URL
-    Label
-    [Save]
-
-The user may enter the URL beneath URL and have the option to add a label. When the user enters information and selects "Save," the text reads::
-
-    Successfully linked to URL
-
 .. _mendeley:
 
 Configuring Mendeley
